@@ -60,10 +60,10 @@ class Profile(models.Model):
         return cls.objects.filter(user__username__icontains=user).all()
 
 class Reservation(models.Model):
+    booking_date = models.DateField()
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     plate_No = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    booking_date = models.DateField()
-    Entry_time = models.TimeField(auto_now=True, auto_now_add=False)
+    Entry_time = models.TimeField(auto_now=False, auto_now_add=False)
     Exit_time = models.TimeField(auto_now=False, auto_now_add=False)
     duration_in_minutes = models.PositiveIntegerField()
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
