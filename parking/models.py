@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 import datetime as dt
 from django.utils import timezone
+from location_field.models.plain import PlainLocationField
 
 # Create your models here.
 CHOICES = (
@@ -11,6 +12,7 @@ CHOICES = (
 
 class Location(models.Model):
     name = models.CharField(max_length=100,null=True)
+    location = PlainLocationField(based_fields=['city'], zoom=7,null=True)
 
     def __str__(self):
         return self.name
