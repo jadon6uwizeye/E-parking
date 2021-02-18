@@ -32,14 +32,14 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'parking',
-    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'location_field.apps.DefaultConfig',
+    'rest_framework',
+
 ]
 
 MIDDLEWARE = [
@@ -105,10 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LOCATION_FIELD = {
-    'provider.openstreetmap.max_zoom': 18,
-   
-}
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
