@@ -103,12 +103,10 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-#  google ap api key
+
 LOCATION_FIELD = {
-    'provider.google.api': '//maps.google.com/maps/api/js?sensor=false',
-    'provider.google.api_key': '<PLACE YOUR API KEY HERE>',
-    'provider.google.api_libraries': '',
-    'provider.google.map.type': 'ROADMAP',
+    'provider.openstreetmap.max_zoom': 18,
+   
 }
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
