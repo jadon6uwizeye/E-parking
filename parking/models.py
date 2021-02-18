@@ -14,8 +14,8 @@ CHOICES = (
 class Location(models.Model):
     name = models.CharField(max_length=100,null=True)
     location = PlainLocationField(based_fields=['city'], zoom=7,null=True)
-    latitude = models.FloatField(validators=[MinValueValidator(-90),MaxValueValidator(90)])
-    longitude = models.FloatField(validators=[MinValueValidator(-180),MaxValueValidator(180)])
+    latitude = models.FloatField(validators=[MinValueValidator(-90),MaxValueValidator(90)],null=True)
+    longitude = models.FloatField(validators=[MinValueValidator(-180),MaxValueValidator(180)],null=True)
 
     def __str__(self):
         return self.name
