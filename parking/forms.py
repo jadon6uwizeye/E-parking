@@ -1,5 +1,12 @@
 from django import forms
 from .models import Block,Reservation,Profile,ParkingSlip,ParkingSlot
+from location_field.forms.plain import PlainLocationField
+from djreservation.views import ProductReservationView
+ 
+class Address(forms.Form):
+    city = forms.CharField()
+    location = PlainLocationField(based_fields=['city'],initial='-22.2876834,-49.1607606')
+
 class blockForm(forms.ModelForm):
     class Meta:
         model=Block
@@ -15,7 +22,7 @@ class ParkingSlotForm(forms.ModelForm):
         model=ParkingSlot
         exclude=['slot_number']
 
-class ReservationForm(forms.ModelForm):
+class MyObjectReservation(ProductReservationView):
     class Meta:
         model=Reservation
         exclude=['Entry_time','Exit_time','location']
