@@ -112,12 +112,19 @@ from .serializer import *
 
 #     # return render(request,'update_profile.html',{"form":form})
 
-
+ 
 class LocationList(APIView):
     def get(self,request,format=None):
         all_locations = Location.objects.all()
         serializers = LocationSerializer(all_locations,many=True)
         return Response(serializers.data)
+
+    def post(self, request, format=None):
+        serializers = LocationSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class LotList(APIView):
     def get(self,request,format=None):
@@ -125,11 +132,25 @@ class LotList(APIView):
         serializers = LotSerializer(all_lots,many=True)
         return Response(serializers.data)
 
+    def post(self, request, format=None):
+        serializers = LotSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
 class BlockList(APIView):
     def get(self,request,format=None):
         all_blocks = Block.objects.all()
         serializers = BlockSerializer(all_blocks,many=True)
         return Response(serializers.data)
+
+    def post(self, request, format=None):
+        serializers = BlockSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class SlotList(APIView):
     def get(self,request,format=None):
@@ -137,11 +158,25 @@ class SlotList(APIView):
         serializers = SlotSerializer(all_slots,many=True)
         return Response(serializers.data)
 
+    def post(self, request, format=None):
+        serializers = SlotSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
 class ProfileList(APIView):
     def get(self,request,format=None):
         all_profiles = Profile.objects.all()
         serializers = ProfileSerializer(all_profiles,many=True)
         return Response(serializers.data)
+
+    def post(self, request, format=None):
+        serializers = ProfileSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ReservationList(APIView):
     def get(self,request,format=None):
@@ -149,8 +184,22 @@ class ReservationList(APIView):
         serializers = ReservationSerializer(all_reservations,many=True)
         return Response(serializers.data)
 
+    def post(self, request, format=None):
+        serializers = ReservationSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
 class SlipList(APIView):
     def get(self,request,format=None):
         all_slips = ParkingSlip.objects.all()
         serializers = SlipSerializer(all_slips,many=True)
         return Response(serializers.data)
+
+    def post(self, request, format=None):
+        serializers = SlipSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
