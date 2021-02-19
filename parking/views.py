@@ -1,14 +1,17 @@
 from django.shortcuts import render,redirect
-
-# Create your views here.
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
-from .models import Block,ParkingLot,ParkingSlip,Location,ParkingSlot,Reservation
+from .models import Block,ParkingLot,ParkingSlip,Location,ParkingSlot,Reservation,Profile
 from .forms import blockForm,ParkingSlotForm,ProfileForm,ParkingSlipForm,ReservationForm
-
 import datetime as dt
 from django.contrib.auth.models import User
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import *
+
+
 
 # def index(request):
 #     try:
@@ -110,4 +113,44 @@ from django.contrib.auth.models import User
 #     # return render(request,'update_profile.html',{"form":form})
 
 
+class LocationList(APIView):
+    def get(self,request,format=None):
+        all_locations = Location.objects.all()
+        serializers = LocationSerializer(all_locations,many=True)
+        return Response(serializers.data)
 
+class LotList(APIView):
+    def get(self,request,format=None):
+        all_lots = ParkingLot.objects.all()
+        serializers = LotSerializer(all_lots,many=True)
+        return Response(serializers.data)
+
+class BlockList(APIView):
+    def get(self,request,format=None):
+        all_blocks = Block.objects.all()
+        serializers = BlockSerializer(all_blocks,many=True)
+        return Response(serializers.data)
+
+class SlotList(APIView):
+    def get(self,request,format=None):
+        all_slots = ParkingSlot.objects.all()
+        serializers = SlotSerializer(all_slots,many=True)
+        return Response(serializers.data)
+
+class ProfileList(APIView):
+    def get(self,request,format=None):
+        all_profiles = Profile.objects.all()
+        serializers = ProfileSerializer(all_profiles,many=True)
+        return Response(serializers.data)
+
+class ReservationList(APIView):
+    def get(self,request,format=None):
+        all_reservations = Reservation.objects.all()
+        serializers = ReservationSerializer(all_reservations,many=True)
+        return Response(serializers.data)
+
+class SlipList(APIView):
+    def get(self,request,format=None):
+        all_slips = ParkingSlip.objects.all()
+        serializers = SlipSerializer(all_slips,many=True)
+        return Response(serializers.data)
