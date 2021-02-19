@@ -2,7 +2,8 @@ asgiref==3.3.1
 confusable-homoglyphs==3.2.0
 Django==3.1.5
 django-location-field==2.1.0
-django-registration==3.1.1
+django-registration==2.4.1
+django-reservation==0.2.9
 django-tinymce==3.2.0
 djangorestframework==3.12.2
 Pillow==8.1.0
