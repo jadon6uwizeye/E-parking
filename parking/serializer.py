@@ -24,7 +24,7 @@ class SlotSerializer(serializers.ModelSerializer):
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ('user', 'email','phone_No','plate_No')
+        fields = ('user_name', 'email','phone_No','plate_No')
 
 class ReservationSerializer(serializers.ModelSerializer):
     class Meta:
