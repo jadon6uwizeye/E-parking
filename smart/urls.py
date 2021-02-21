@@ -15,13 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import url,include
-# from djreservation import urls as djreservation_urls
+from django.contrib.auth import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    # url(r'', include('parking.urls')),
-    url(r'^accounts/', include('registration.backends.simple.urls')),
-    # url(r'^logout/$', views.logout, {"next_page": '/'}),
-    # url(r"^reservation/create/(?P<modelpk>\d+)$", MyObjectReservation.as_view())
+    url(r'^admin/', admin.site.urls),    
+    url(r'', include('parking.urls')),
 ]
-# urlpatterns += djreservation_urls.urlpatterns
