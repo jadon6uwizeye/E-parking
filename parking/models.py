@@ -42,7 +42,7 @@ class ParkingSlot(models.Model):
 
 
 class Profile(models.Model):
-    user= models.OneToOneField(User, on_delete=models.CASCADE)
+    username= models.OneToOneField(User, on_delete=models.CASCADE)
     email=models.EmailField(default='No email')
     phone_No = models.CharField(max_length=10)
     plate_No = models.CharField(max_length=10)
@@ -65,7 +65,7 @@ class Profile(models.Model):
 
 class Reservation(models.Model):
     booking_date = models.DateField()
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_id')
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE,related_name='user_id')
     plate_No = models.ForeignKey(Profile, on_delete=models.CASCADE)
     Entry_time = models.TimeField(auto_now=False, auto_now_add=False)
     Exit_time = models.TimeField(auto_now=False, auto_now_add=False)

@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$',views.index,name='index'),
+    url(r'^login/',views.login,name='login'),
     url(r'^api/location', views.LocationList.as_view(),name='api-location'),
     url(r'^api/lot', views.LotList.as_view(),name='api-lot'),
     url(r'^api/block', views.BlockList.as_view(),name='api-block'),

@@ -2,6 +2,8 @@ from django import forms
 from .models import Block,Reservation,Profile,ParkingSlip,ParkingSlot
 from location_field.forms.plain import PlainLocationField
 from djreservation.views import ProductReservationView
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
  
 class Address(forms.Form):
     city = forms.CharField()
