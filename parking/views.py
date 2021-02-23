@@ -27,32 +27,42 @@ def index(request):
     return render(request,'index.html')
 
 def signup(request):
-    if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('login')
+    if not request.user.is_authenticated:
+        return redirect('index')
     else:
-        form = SignUpForm()
-    return render(request, 'registration/registration_form.html', {'form': SignUpForm})
+        if request.method == 'POST':
+
+            form = SignUpForm(request.POST)
+
+
+            if form.is_valid():
+                form.save()
+                username = form.cleaned_data.get('username')
+                raw_password = form.cleaned_data.get('password1')
+                user = authenticate(username=username, password=raw_password)
+                login(request, user)
+                return redirect('login')
+            else:
+                form = SignUpForm()
+                return render(request, 'registration/registration_form.html', {'form': SignUpForm})
+   
 
 def login(request):
-    if request.method == 'POST':
-        username=request.POST.get('username')
-        password=request.POST.get('password')
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            login(request,username)
-            return redirect('index')
-        else:
-            messages.info(request,'Username or Password is incorrect')
-    context={}
-    
-    return render(request,'registration/login.html',context)
+    if not request.user.is_authenticated:
+        return redirect('index')
+    else:
+        if request.method == 'POST':
+            username=request.POST.get('username')
+            password=request.POST.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request,username)
+                return redirect('index')
+            else:
+                messages.info(request,'Username or Password is incorrect')
+        context={}
+        
+        return render(request,'registration/login.html',context)
 
 def logoutUser(request):
     logout(request)
