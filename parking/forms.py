@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
  
 class Address(forms.Form):
     city = forms.CharField()
-    location = PlainLocationField(based_fields=['city'],initial='-22.2876834,-49.1607606')
+    # location = PlainLocationField(based_fields=['city'],initial='-22.2876834,-49.1607606')
 
 class blockForm(forms.ModelForm):
     class Meta:

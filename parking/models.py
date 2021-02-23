@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 import datetime as dt
 from django.utils import timezone
-from location_field.models.plain import PlainLocationField
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
@@ -43,6 +42,7 @@ class ParkingSlot(models.Model):
 
 class Profile(models.Model):
     username= models.OneToOneField(User, on_delete=models.CASCADE)
+    # user_name= models.OneToOneField(User, on_delete=models.CASCADE)
     email=models.EmailField(default='No email')
     phone_No = models.CharField(max_length=10)
     plate_No = models.CharField(max_length=10)

@@ -19,12 +19,12 @@
                   
                   {% if form.errors %}
                   {% endif %}
-                  <input type="submit" name="login_submit" value="login" /><a href="{% url 'index' %}"></a>
-                  <div class="card mt-2">
-                    <div class="card-body mt-3 mb-2 mr-3 ml-3">
-                        
-                    </div>
-                </div>
+                  <div class="form-group">
+                    <input type="submit" class="btn btn-primary login-button" value="Log in">
+    
+                  </div>
+                  <input type="hidden" name="next" value="/">
+                  <p> Don't have an account? <span><a class="" href="/accounts/register">Sign Up</a></span></p>
                 </div>
                 
                 
