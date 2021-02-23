@@ -47,13 +47,19 @@ def login(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request,username)
-            redirect('index')
+            return redirect('index')
+        else:
+            messages.info(request,'Username or Password is incorrect')
     context={}
     
     return render(request,'registration/login.html',context)
 
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
 
-@login_required(login_url='/accounts/login/')
+
+@login_required(login_url='login')
 def my_profile(request):
     current_user=request.user
     profile =Profile.objects.get(username=current_user)
