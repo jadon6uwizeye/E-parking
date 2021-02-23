@@ -8,6 +8,8 @@ django-location-field==2.1.0
 django-registration==2.4.1
 django-reservation==0.2.9
 django-tinymce==3.2.0
+django-utils==0.0.2
+django-utils-six==2.0
 djangorestframework==3.12.2
 djangorestframework-simplejwt==4.4.0
 gunicorn==20.0.4
