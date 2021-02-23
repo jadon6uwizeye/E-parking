@@ -42,7 +42,6 @@ class ParkingSlot(models.Model):
 
 class Profile(models.Model):
     username= models.OneToOneField(User, on_delete=models.CASCADE)
-    # user_name= models.OneToOneField(User, on_delete=models.CASCADE)
     email=models.EmailField(default='No email')
     phone_No = models.CharField(max_length=10)
     plate_No = models.CharField(max_length=10)
