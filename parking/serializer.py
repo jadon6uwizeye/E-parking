@@ -1,25 +1,21 @@
 from rest_framework import serializers
-from .models import Location,ParkingLot,Block,ParkingSlot,Profile,Reservation,ParkingSlip
+from .models import Location,Block,ParkingSlot,Profile,Reservation,ParkingSlip
 
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
-        fields = ('name', 'latitude','longitude')
+        fields = ('name', 'latitude','longitude','building','building_photo')
 
-class LotSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ParkingLot
-        fields = ('number_of_blocks', 'location','code','is_reentry_allowed')
 
 class BlockSerializer(serializers.ModelSerializer):
     class Meta:
         model = Block
-        fields = ('lot', 'block_code','is_block_full','is_accessible', 'number_of_slots')
+        fields = ('location','block_photo','block_code','is_block_full','is_accessible', 'number_of_slots')
 
 class SlotSerializer(serializers.ModelSerializer):
     class Meta:
         model = ParkingSlot
-        fields = ('block_id', 'slot_number','is_slot_available')
+        fields = ('block_id', 'slot_number','is_slot_available','slot_photo')
 
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:

@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
-from .models import Block,ParkingLot,ParkingSlip,Location,ParkingSlot,Reservation,Profile
+from .models import Block,ParkingSlip,Location,ParkingSlot,Reservation,Profile
 from .forms import blockForm,ParkingSlotForm,ProfileForm,ParkingSlipForm,MyObjectReservation
 import datetime as dt
 from django.contrib.auth.models import User
@@ -157,19 +157,6 @@ class LocationList(APIView):
             return Response(serializers.data, status=status.HTTP_201_CREATED)
         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class LotList(APIView):
-    def get(self,request,format=None):
-        all_lots = ParkingLot.objects.all()
-        serializers = LotSerializer(all_lots,many=True)
-        permission_classes = (IsAuthenticated,)
-        return Response(serializers.data)
-
-    def post(self, request, format=None):
-        serializers = LotSerializer(data=request.data)
-        if serializers.is_valid():
-            serializers.save()
-            return Response(serializers.data, status=status.HTTP_201_CREATED)
-        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class BlockList(APIView):
     def get(self,request,format=None):
