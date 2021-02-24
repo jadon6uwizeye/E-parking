@@ -12,21 +12,18 @@ CHOICES = (
 
 class Location(models.Model):
     name = models.CharField(max_length=100,null=True)
+    building = models.CharField(max_length=100,null=True)
+    building_photo = models.ImageField(upload_to='building/')
     latitude = models.FloatField(validators=[MinValueValidator(-90),MaxValueValidator(90)],null=True)
     longitude = models.FloatField(validators=[MinValueValidator(-180),MaxValueValidator(180)],null=True)
 
     def __str__(self):
         return self.name
 
-class ParkingLot(models.Model):
-    number_of_blocks = models.PositiveIntegerField()
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    code = models.CharField(max_length=10)
-    is_reentry_allowed = models.CharField(max_length=1,choices=CHOICES )
-
 
 class Block(models.Model):
-    lot = models.ForeignKey(ParkingLot, on_delete=models.CASCADE)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    block_photo = models.ImageField(upload_to='blocks/')
     block_code = models.CharField(max_length=3)
     is_block_full = models.CharField(max_length=1, choices=CHOICES)
     is_accessible = models.CharField(max_length=1)
@@ -36,6 +33,7 @@ class Block(models.Model):
 
 class ParkingSlot(models.Model):
     block_id = models.ForeignKey(Block, on_delete=models.CASCADE)
+    slot_photo = models.ImageField(upload_to='slots/')
     slot_number = models.PositiveIntegerField()
     is_slot_available = models.CharField(max_length=1,choices=CHOICES)
 
@@ -62,6 +60,11 @@ class Profile(models.Model):
     def search_user(cls,user):
         return cls.objects.filter(user__username__icontains=user).all()
 
+    @classmethod
+    def get_all_profiles(cls):
+        profile = Profile.objects.all()
+        return profile
+        
 class Reservation(models.Model):
     booking_date = models.DateField()
     user_id = models.ForeignKey(User, on_delete=models.CASCADE,related_name='user_id')
