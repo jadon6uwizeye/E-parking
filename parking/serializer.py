@@ -4,13 +4,13 @@ from .models import Location,Block,ParkingSlot,Profile,Reservation,ParkingSlip
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
-        fields = ('name', 'latitude','longitude','building','building_photo')
+        fields = ('name', 'latitude','longitude','location_pic')
 
 
 class BlockSerializer(serializers.ModelSerializer):
     class Meta:
         model = Block
-        fields = ('location','block_photo','block_code','is_block_full','is_accessible', 'number_of_slots')
+        fields = ('block_code','block_photo','location','is_block_full','is_accessible', 'number_of_slots')
 
 class SlotSerializer(serializers.ModelSerializer):
     class Meta:
