@@ -45,5 +45,6 @@ a:link, a:visited {
     border: none;
     font-weight: 400;
     background:none;
-    
+    width: 0% !important;
+
 }
