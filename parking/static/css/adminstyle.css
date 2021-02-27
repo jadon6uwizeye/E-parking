@@ -31,3 +31,12 @@ a:link, a:visited {
     color: #3f221d !important;
     text-decoration: none;
 }
+#header a:link, #header a:visited {
+    color: #ffc !important;
+}
+.button.default, input[type=submit].default, .submit-row input.default {
+    background: #3f221d !important;
+}
+.object-tools a:focus, .object-tools a:hover {
+    background-color: #3f221d !important;
+}
