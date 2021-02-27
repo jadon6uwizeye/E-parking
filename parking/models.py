@@ -85,8 +85,6 @@ class Reservation(models.Model):
 
     def delete_reservation(self):
         self.delete()
-    def __str__(self):
-        return self.user_id
 
 class ParkingSlip(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -94,5 +92,3 @@ class ParkingSlip(models.Model):
     entry_time = models.TimeField()
     exit_time = models.TimeField()
 
-    def __str__(self):
-        return self.user_id
