@@ -15,5 +15,5 @@ div.breadcrumbs a {
 }
 .button, input[type=submit], input[type=button], .submit-row input, a.button {
     background: #3f221d;
-    background: #ffc;
+    color: #ffc;
 }
