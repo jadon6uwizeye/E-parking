@@ -38,5 +38,5 @@ a:link, a:visited {
     background: #3f221d !important;
 }
 .object-tools a:focus, .object-tools a:hover {
-    background-color: #3f221d !important;
+    background-color: none !important;
 }
