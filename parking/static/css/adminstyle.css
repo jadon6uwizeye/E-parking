@@ -44,5 +44,7 @@ a:link, a:visited {
     font-weight: 400;
     background:none;
     width: 0% !important;
-
+}
+#recent-actions-module .module{
+    display: none;
 }
