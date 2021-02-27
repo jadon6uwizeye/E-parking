@@ -16,8 +16,18 @@ div.breadcrumbs a {
 .button, input[type=submit], input[type=button], .submit-row input, a.button {
     background: #3f221d;
     color: #ffc;
+    width: 100% !important;
 }
 .login .submit-row {
-    padding:0;
+    padding:0px !important;
     width: 100%;
+}
+
+.module h2, .module caption, .inline-group h2 {
+    background: #3f221d;
+    color: #ffc;
+}
+a:link, a:visited {
+    color: #3f221d !important;
+    text-decoration: none;
 }
