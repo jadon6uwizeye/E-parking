@@ -48,3 +48,6 @@ a:link, a:visited {
 #recent-actions-module .module{
     display: none;
 }
+#content-related .module {
+    display: none;
+}
