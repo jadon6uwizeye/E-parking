@@ -28,6 +28,8 @@ class Block(models.Model):
     is_accessible = models.CharField(max_length=1)
     number_of_slots = models.PositiveIntegerField()
 
+    def __str__(self):
+        return self.block_code
 
 
 class ParkingSlot(models.Model):
@@ -35,6 +37,9 @@ class ParkingSlot(models.Model):
     slot_number = models.PositiveIntegerField()
     is_slot_available = models.CharField(max_length=1,choices=CHOICES)
     slot_photo = models.ImageField(upload_to='slots/',default='media/defaultslot.jpeg')
+
+    def __str__(self):
+        return self.block_id
 
 
 class Profile(models.Model):
@@ -80,6 +85,8 @@ class Reservation(models.Model):
 
     def delete_reservation(self):
         self.delete()
+    def __str__(self):
+        return self.user_id
 
 class ParkingSlip(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -87,3 +94,5 @@ class ParkingSlip(models.Model):
     entry_time = models.TimeField()
     exit_time = models.TimeField()
 
+    def __str__(self):
+        return self.user_id
