@@ -1,27 +1,45 @@
-<div class="col-sm-6 col-md-6">
-    {% if user.is_authenticated %}
-    <ul>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
-                  <span class="caret"></span>
-              </a>
-        <ul class="dropleft-menu" role="menu">
-          <li>
-            <a href="/">Parking slots</a>
-          </li>
-          <li>
-            <a href="/accounts/password/change">Booking</a>
-          </li>
-          <li>
-            <a href="/logout">Logout</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    {% else %}
-    <li>
-      <a class='btn btn-default' href="/login">Login</a>
-    </li>
+<nav class="navbar navbar-custom navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#">Smart-Parking</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    {% endif %}
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Location
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">AUCA</a>
+          <a class="dropdown-item" href="#">Kigali Heights</a>
+        </div>
+      </li>
+      
+      <!-- {% if user.is_authenticated %}
+      
+      <li><a class="nav-item nav-link active" href="{% url 'logout' %}">
+          <i class="fas fa-sign-out-alt"></i>Logout
+        </a></li>
+
+
+      {% else %} -->
+      <li><a class="nav-item nav-link active" href="{% url 'login' %}">Login</a></li>
+      
+      {% endif %}
+    </ul>
+
+    
   </div>
+</nav>
+<style>
+  .navbar-custom { 
+    background-color: white; 
+} 
+</style>
