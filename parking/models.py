@@ -12,22 +12,18 @@ CHOICES = (
 
 class Location(models.Model):
     name = models.CharField(max_length=100,null=True)
+    location_pic = models.ImageField(upload_to='building/',default='media/auca.jpeg')
     latitude = models.FloatField(validators=[MinValueValidator(-90),MaxValueValidator(90)],null=True)
     longitude = models.FloatField(validators=[MinValueValidator(-180),MaxValueValidator(180)],null=True)
 
     def __str__(self):
         return self.name
 
-class ParkingLot(models.Model):
-    number_of_blocks = models.PositiveIntegerField()
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    code = models.CharField(max_length=10)
-    is_reentry_allowed = models.CharField(max_length=1,choices=CHOICES )
-
 
 class Block(models.Model):
-    lot = models.ForeignKey(ParkingLot, on_delete=models.CASCADE)
     block_code = models.CharField(max_length=3)
+    block_photo = models.ImageField(upload_to='blocks/',default='media/defaultblock.jpeg')
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
     is_block_full = models.CharField(max_length=1, choices=CHOICES)
     is_accessible = models.CharField(max_length=1)
     number_of_slots = models.PositiveIntegerField()
@@ -38,11 +34,11 @@ class ParkingSlot(models.Model):
     block_id = models.ForeignKey(Block, on_delete=models.CASCADE)
     slot_number = models.PositiveIntegerField()
     is_slot_available = models.CharField(max_length=1,choices=CHOICES)
+    slot_photo = models.ImageField(upload_to='slots/',default='media/defaultslot.jpeg')
 
 
 class Profile(models.Model):
     username= models.OneToOneField(User, on_delete=models.CASCADE)
-    # user_name= models.OneToOneField(User, on_delete=models.CASCADE)
     email=models.EmailField(default='No email')
     phone_No = models.CharField(max_length=10)
     plate_No = models.CharField(max_length=10)
@@ -63,9 +59,14 @@ class Profile(models.Model):
     def search_user(cls,user):
         return cls.objects.filter(user__username__icontains=user).all()
 
+    @classmethod
+    def get_all_profiles(cls):
+        profile = Profile.objects.all()
+        return profile
+
 class Reservation(models.Model):
     booking_date = models.DateField()
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE,related_name='user_id')
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_id')
     plate_No = models.ForeignKey(Profile, on_delete=models.CASCADE)
     Entry_time = models.TimeField(auto_now=False, auto_now_add=False)
     Exit_time = models.TimeField(auto_now=False, auto_now_add=False)
@@ -85,3 +86,4 @@ class ParkingSlip(models.Model):
     slot_reservation_id = models.ForeignKey(Reservation, on_delete=models.CASCADE)
     entry_time = models.TimeField()
     exit_time = models.TimeField()
+

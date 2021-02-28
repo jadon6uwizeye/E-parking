@@ -1,0 +1,49 @@
+#header {
+    background: #3f221d;
+    color: #ffc;
+}
+#branding h1{
+    color: #ffc;
+
+}
+div.breadcrumbs {
+    background: #ffc;
+    color: #3f221d;
+}
+div.breadcrumbs a {
+    color: #3f221d;
+}
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: #3f221d;
+    color: #ffc;
+    width: 100% !important;
+}
+.login .submit-row {
+    padding:0px !important;
+    width: 100%;
+}
+
+.module h2, .module caption, .inline-group h2 {
+    background: #3f221d;
+    color: #ffc;
+}
+a:link, a:visited {
+    color: #3f221d !important;
+    text-decoration: none;
+}
+#header a:link, #header a:visited {
+    color: #ffc !important;
+}
+.button.default, input[type=submit].default, .submit-row input.default {
+    background: #3f221d !important;
+}
+.object-tools a:focus, .object-tools a:hover {
+    background-color: none !important;
+}
+.button.default, input[type=submit].default, .submit-row input.default {
+    float: right;
+    border: none;
+    font-weight: 400;
+    background:none;
+    
+}

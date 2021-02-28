@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
-from .models import Block,ParkingLot,ParkingSlip,Location,ParkingSlot,Reservation,Profile
+from .models import Block,ParkingSlip,Location,ParkingSlot,Reservation,Profile
 from .forms import blockForm,ParkingSlotForm,ProfileForm,ParkingSlipForm,MyObjectReservation
 import datetime as dt
 from django.contrib.auth.models import User
@@ -13,7 +13,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import *
 from rest_framework.permissions import IsAuthenticated
-
+from rest_framework import generics, permissions, mixins
+from .serializer import RegisterSerializer, UserSerializer
 
 def index(request):
     return render(request,'index.html')
@@ -134,7 +135,19 @@ def my_profile(request):
 
 #     # return render(request,'update_profile.html',{"form":form})
 
- 
+
+#Register API
+class RegisterApi(generics.GenericAPIView):
+    serializer_class = RegisterSerializer
+    def post(self, request, *args,  **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        return Response({
+            "user": UserSerializer(user,    context=self.get_serializer_context()).data,
+            "message": "User Created Successfully.  Now perform Login to get your token",
+        })
+
 class LocationList(APIView):
     def get(self,request,format=None):
         all_locations = Location.objects.all()
@@ -149,19 +162,6 @@ class LocationList(APIView):
             return Response(serializers.data, status=status.HTTP_201_CREATED)
         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class LotList(APIView):
-    def get(self,request,format=None):
-        all_lots = ParkingLot.objects.all()
-        serializers = LotSerializer(all_lots,many=True)
-        permission_classes = (IsAuthenticated,)
-        return Response(serializers.data)
-
-    def post(self, request, format=None):
-        serializers = LotSerializer(data=request.data)
-        if serializers.is_valid():
-            serializers.save()
-            return Response(serializers.data, status=status.HTTP_201_CREATED)
-        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class BlockList(APIView):
     def get(self,request,format=None):
