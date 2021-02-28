@@ -10,7 +10,7 @@ class LocationAdmin(admin.ModelAdmin):
 
 class BlockAdmin(admin.ModelAdmin):
     list_display= ('block_code','location','is_block_full','is_accessible','number_of_slots')
-    search_fields = ('block_code', 'location')
+    search_fields = ('block_code')
     list_per_page = 5
 
 class SlotAdmin(admin.ModelAdmin):
