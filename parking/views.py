@@ -16,14 +16,6 @@ from rest_framework.permissions import IsAuthenticated
 
 
 def index(request):
-    try:
-        if not request.user.is_authenticated:
-            return redirect('accounts/register')
-        current_user=request.user
-        profile =Profile.objects.get(username=current_user)
-    except ObjectDoesNotExist:
-        return redirect('my_profile')
-
     return render(request,'index.html')
 
 def signup(request):
