@@ -52,6 +52,10 @@ a:link, a:visited {
     display: none;
 }
 a:link, a:visited {
-    color: transparent;
+    color:none;
     text-decoration: none;
+}
+
+a:focus, a:hover {
+    color: none;
 }
