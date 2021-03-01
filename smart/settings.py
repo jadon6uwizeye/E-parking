@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'tinymce',
     'parking',
+    'bootstrap4',
     'location_field',
     'djreservation',
     'django.contrib.admin',

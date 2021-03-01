@@ -1,14 +1,12 @@
 {% extends "admin/base.html" %}
 {% load static %}
+{% load bootstrap4 %}
 
 {% block branding %}
 
-<!-- <h1 id="head">
-<img src="{% static 'img/car.png' %}" width="35" height="35"/>
-<b>Smart-Parking</b>
-</h1> -->
+
 <nav>
-    <!-- header -->
+    <!-- header
     <div id="header">
         <div id="branding">
             <h1 id="head">
@@ -17,36 +15,89 @@
             </h1>
         </div>
         <!-- User tools -->
-        <div id="user-tools">
+        <!-- <div id="user-tools">
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 Welcome,<strong>admin</strong>.
-                <a href="/">View site</a> /
-                <a href="/admin/password_change/">Change password</a> /
+                <a href="/">View site</a> 
+                <a href="/admin/password_change/">Change password</a> 
                 <a href="/admin/logout/">Log out</a>
             </div>
               
               <!-- Use any element to open the sidenav -->
-              <span onclick="openNav()">open</span>
-              
-              <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
-              <div id="main">
-                ...
-              </div>
+              <!-- <span onclick="openNav()">open</span>
+    
+        </div> --> 
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Smart-Parking</h3>
+            </div>
+    
+            <ul class="list-unstyled components">
+                <p>Welcome,<strong>admin</strong>.</p>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="/">View site</a> 
+                        </li>
+                        <li>
+                            <a href="/admin/password_change/">Change password</a> 
+                        </li>
+                        <li>
+                            <a href="/admin/logout/">Log out</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li>
+                                <a href="#">Page 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Page 2</a>
+                            </li>
+                            <li>
+                                <a href="#">Page 3</a>
+                            </li>
+                        </ul>
+                </li>
+                <li>
+                    <a href="#">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+        
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+        
+                </div>
+            </nav>
         </div>
+    </div>
     <div>
         <script>
-            /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
-            function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
-            }
+            $(document).ready(function () {
 
-            /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
-            function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
-            }
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').toggleClass('active');
+                });
+
+                });
         </script>
     </div>
 </nav>
