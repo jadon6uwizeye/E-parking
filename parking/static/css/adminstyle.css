@@ -3,7 +3,7 @@
     color: #3f221d;
 }
 #branding h1{
-    color: #ffc;
+    color: #3f221d;
 
 }
 div.breadcrumbs {
@@ -30,7 +30,7 @@ a:link, a:visited {
     text-decoration: none;
 }
 #header a:link, #header a:visited {
-    color: #ffc !important;
+    color: #3f221d !important;
 }
 .button.default, input[type=submit].default, .submit-row input.default {
     background: #3f221d !important;
