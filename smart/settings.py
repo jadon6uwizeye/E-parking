@@ -36,7 +36,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # 'bootstrap3',
+    'bootstrap3',
     'tinymce',
     'parking',
     'location_field',
@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'bootstrap4',
 
 ]
 
