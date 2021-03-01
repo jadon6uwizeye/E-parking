@@ -1,6 +1,107 @@
-{%extends 'base.html'%}
-{% load static%}
-{% block content %}
-{{block.super}}
+{% extends 'base.html' %}
 
-{%endblock%}
+{% block content %}
+
+<style>
+  .card-img {
+    width: 100%;
+    height: 28vw;
+    object-fit: cover;
+  }
+
+  .card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+  }
+  *{
+      font-family: Dosis;
+  }
+</style>
+
+
+<div id="carouselExampleControls" class="carousel slide d-none d-md-block" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="card-img">
+        <img class="d-block w-100"
+          src="https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt="First slide"></div>
+      <div class="carousel-caption p-5 d-none d-md-block text-light" style="position: fixed; /* Sit on top of the page content */
+      display: none; /* Hidden by default */
+      width: 100%; /* Full width (cover the whole page) */
+      height: 65%;
+      top: 55px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(68, 12, 12, 0.912)">
+        <h1 class="text-light m-5" style="margin-top: 50px;">Smart-Parking</h1>
+        <h4>Park with us in kigali based on your location </h4>
+        <button type="button" class="btn btn-outline-danger mt-4 text-light mr-4" data-target="#exampleModal">
+          Booking now
+        </button>
+      </div>
+    </div>
+    {% for location in locations %}
+    <div class="carousel-item">
+      <div class="card-img">
+        <img class="d-block w-100" src="{{ location.image.url }}" alt="................."></div>
+      <div class="carousel-caption p-5 d-none d-md-block text-light" style="position: fixed; /* Sit on top of the page content */
+      display: none; /* Hidden by default */
+      width: 100%; /* Full width (cover the whole page) */
+      height: 65%; /* Full height (cover the whole page) */
+      top: 55px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(138, 34, 23, 0.5)">
+        <h2 class="text-light m-5" style="margin-top: 50px;">{{location.location_name}}</h2>
+        <div class="row justify-content-center m-5">
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+</div>
+
+<div class="container">
+
+  <h3 class="text-center m-4">Locations</h3>
+  <hr>
+
+  <div class="row justify-content-center">
+    {% for location in locations %}
+
+    <div class="card col-md-3 m-3">
+      <img class="card-img-top" width="100%" src="{{ location.image.url }}" alt="-------">
+      <div class="card-body">
+        <h5 class="card-title">{{location.location_name}}</h5>
+        <a href="{% url 'location' location.id %}" class="btn btn-block  p-2">Park here</a>
+      </div>
+    </div>
+
+
+    {% endfor %}
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+
+        
+          {% csrf_token %}
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
