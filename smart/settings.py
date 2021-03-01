@@ -25,7 +25,7 @@ SECRET_KEY = '15==e0k1hvrou+^rv43m*b%z*_%baj9tse$s(d!hq1mg$&8a=&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://smartparking250.herokuapp.com/']
 
 
 # Application definition
