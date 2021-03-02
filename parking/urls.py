@@ -6,7 +6,7 @@ from .views import RegisterApi
 
 urlpatterns = [
     url(r'^$',views.index,name='index'),
-    url(r'^login/',views.login,name='login'),
+    url(r'^django-sb-admin/login/',views.login,name='login'),
     url(r'^api/register', RegisterApi.as_view(),name='api-register'),
     url(r'^api/location', views.LocationList.as_view(),name='api-location'),
     url(r'^api/block', views.BlockList.as_view(),name='api-block'),
