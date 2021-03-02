@@ -152,7 +152,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-# secrete key
+# secret key
 JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
 
 # Static files (CSS, JavaScript, Images)
