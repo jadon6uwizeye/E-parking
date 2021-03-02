@@ -21,9 +21,9 @@ class RegisterSerializer(serializers.ModelSerializer):
 
 # User serializer
 class UserSerializer(serializers.ModelSerializer):
-    class Meta:
+     class Meta:
         model = User
-        fields = '__all__'
+        fields = ['username', 'first_name', 'last_name', 'email', 'password']
 
 # login serializer
 class LoginSerializer(serializers.ModelSerializer):
@@ -34,7 +34,7 @@ class LoginSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['username', 'password']
-        
+
 
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
