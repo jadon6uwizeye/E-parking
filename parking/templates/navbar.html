@@ -1,5 +1,7 @@
+{% load static %}
+
 <nav class="navbar navbar-custom navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="#">Smart-Parking</a>
+  <a class="navbar-brand" href="#"><img src="{% static 'img/car.png' %}" width="35" height="35"/>Smart-Parking</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -22,17 +24,10 @@
         </div>
       </li>
       
-      <!-- {% if user.is_authenticated %}
-      
-      <li><a class="nav-item nav-link active" href="{% url 'logout' %}">
-          <i class="fas fa-sign-out-alt"></i>Logout
-        </a></li>
-
-
-      {% else %} -->
       <li><a class="nav-item nav-link active" href="{% url 'login' %}">Login</a></li>
+      <li><a class="nav-item nav-link active" href="https://smartparking250.herokuapp.com/admin/"><i class="fas fa-user"></i>Admin</a></li>
+
       
-      {% endif %}
     </ul>
 
     
