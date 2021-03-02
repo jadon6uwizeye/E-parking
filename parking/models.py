@@ -16,10 +16,10 @@ class Location(models.Model):
     latitude = models.FloatField(validators=[MinValueValidator(-90),MaxValueValidator(90)],null=True)
     longitude = models.FloatField(validators=[MinValueValidator(-180),MaxValueValidator(180)],null=True)
 
-    def __str__(self):
-        if self.name==None:
-            return "ERROR-CUSTOMER NAME IS NULL"
-        return self.name
+    # def __str__(self):
+    #     if self.name==None:
+    #         return "ERROR-CUSTOMER NAME IS NULL"
+    #     return self.name
 
 
 class Block(models.Model):
@@ -30,10 +30,10 @@ class Block(models.Model):
     is_accessible = models.CharField(max_length=1)
     number_of_slots = models.PositiveIntegerField()
 
-    def __str__(self):
-        if self.block_code==None:
-            return "ERROR-CUSTOMER NAME IS NULL"
-        return self.block_code
+    # def __str__(self):
+    #     if self.block_code==None:
+    #         return "ERROR-CUSTOMER NAME IS NULL"
+    #     return self.block_code
 
 
 class ParkingSlot(models.Model):
@@ -42,10 +42,10 @@ class ParkingSlot(models.Model):
     is_slot_available = models.CharField(max_length=1,choices=CHOICES)
     slot_photo = models.ImageField(upload_to='slots/',default='media/defaultslot.jpeg')
 
-    def __str__(self):
-        if self.block_id==None:
-            return "ERROR-CUSTOMER NAME IS NULL"
-        return self.block_id
+    # def __str__(self):
+    #     if self.block_id==None:
+    #         return "ERROR-CUSTOMER NAME IS NULL"
+    #     return self.block_id
 
 
 class Profile(models.Model):
