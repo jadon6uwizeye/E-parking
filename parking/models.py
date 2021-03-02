@@ -31,7 +31,7 @@ class Block(models.Model):
     number_of_slots = models.PositiveIntegerField()
 
     def __str__(self):
-        if self.name==None:
+        if self.block_code==None:
             return "ERROR-CUSTOMER NAME IS NULL"
         return self.block_code
 
@@ -43,8 +43,8 @@ class ParkingSlot(models.Model):
     slot_photo = models.ImageField(upload_to='slots/',default='media/defaultslot.jpeg')
 
     def __str__(self):
-        if self.name==None:
-             "ERROR-CUSTOMER NAME IS NULL"
+        if self.block_id==None:
+            return "ERROR-CUSTOMER NAME IS NULL"
         return self.block_id
 
 
