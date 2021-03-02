@@ -152,6 +152,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+# secrete key
+JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/

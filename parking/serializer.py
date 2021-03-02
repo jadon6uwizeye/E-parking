@@ -16,7 +16,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             'password':{'write_only': True},
         }
     def create(self, validated_data):
-        user = User.objects.create_user(validated_data['username'],     password = validated_data['password']  ,first_name=validated_data['first_name'],  last_name=validated_data['last_name'])
+        user = User.objects.create_user(validated_data['username'],password = validated_data['password']  ,first_name=validated_data['first_name'],  last_name=validated_data['last_name'])
         return user
 
 # User serializer
@@ -24,6 +24,17 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
+
+# login serializer
+class LoginSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(
+        max_length=65, min_length=8, write_only=True)
+    username = serializers.CharField(max_length=255, min_length=2)
+
+    class Meta:
+        model = User
+        fields = ['username', 'password']
+        
 
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:

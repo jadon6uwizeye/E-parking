@@ -2,11 +2,12 @@ from django.conf.urls import url, include
 from django.conf import settings
 from . import views
 from rest_framework_simplejwt import views as jwt_views
-from .views import RegisterApi
+from .views import RegisterApi, LoginView
 
 urlpatterns = [
     url(r'^$',views.index,name='index'),
     url(r'^login/',views.login,name='login'),
+    url(r'^api/login', LoginView.as_view(),name='api-login'),
     url(r'^api/register', RegisterApi.as_view(),name='api-register'),
     url(r'^api/location', views.LocationList.as_view(),name='api-location'),
     url(r'^api/block', views.BlockList.as_view(),name='api-block'),

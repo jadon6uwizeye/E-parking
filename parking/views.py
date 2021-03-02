@@ -15,6 +15,7 @@ from .serializer import *
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import generics, permissions, mixins
 from .serializer import RegisterSerializer, UserSerializer
+import jwt
 
 def index(request):
     return render(request,'index.html')
@@ -147,6 +148,30 @@ class RegisterApi(generics.GenericAPIView):
             "user": UserSerializer(user,    context=self.get_serializer_context()).data,
             "message": "User Created Successfully.  Now perform Login to get your token",
         })
+
+#Login API
+class LoginView(generics.GenericAPIView):
+    serializer_class = LoginSerializer
+
+    def post(self, request):
+        data = request.data
+        username = data.get('username', '')
+        password = data.get('password', '')
+        user = auth.authenticate(username=username, password=password)
+
+        if user:
+            auth_token = jwt.encode(
+                {'username': user.username}, settings.JWT_SECRET_KEY)
+
+            serializer = UserSerializer(user)
+
+            data = {'user': serializer.data, 'token': auth_token}
+
+            return Response(data, status=status.HTTP_200_OK)
+
+            # SEND RESPONSE
+        return Response({'detail': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+
 
 class LocationList(APIView):
     def get(self,request,format=None):
