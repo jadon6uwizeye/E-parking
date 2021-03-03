@@ -36,8 +36,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'bootstrap3',
+    'bootstrap4',
     'tinymce',
+    'django_sb_admin',
     'parking',
     'location_field',
     'djreservation',
