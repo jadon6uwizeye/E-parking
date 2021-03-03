@@ -16,7 +16,10 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework import generics, permissions, mixins
 from .serializer import RegisterSerializer, UserSerializer
 import jwt
+from django.conf import settings
+from django.contrib import auth
 
+# view creation
 def index(request):
     return render(request,'index.html')
 
