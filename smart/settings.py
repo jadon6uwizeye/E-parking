@@ -135,9 +135,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
+    'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ],
 }
 
 # Internationalization
@@ -153,8 +153,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-# secret key
-JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
