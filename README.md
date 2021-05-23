@@ -1,6 +1,6 @@
-# smart-parking
+# Smart-Parking
 
-###  PROJECT DESCRIPTION
+###  Project Description
 
 The major issue we wanted to tackle is the time spent looking for a nearby parking slot.
 We came up with the Smart-Parking application to enable the users to book parking slots easily to reduce the amount of time spent while looking for the nearest parking.
@@ -35,20 +35,6 @@ As a user of the application I should be able to:
 -Uwitonze  Brendah as Android Developer
 
 -Clarisse Uwizeyimana as Android Developer
-```
-### Mobile App Preview
-```
--You need to have (python3.6) installed in your machine
-
--Python3.6. Installation ($ sudo apt-get install python3.6).
-
--Django Installation ($ pip install django==3.1.5).
-
--Psycopg2. Installation ($ pip install psycopg2==2.7.5).
-
--Bootstrap3. Installation ($ pip install django-bootstrap3).
-
--Pillow. Installation ($ pip install Pillow).
 ```
 
 # Demo 
