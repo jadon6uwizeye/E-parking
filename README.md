@@ -52,9 +52,10 @@ As a user of the application I should be able to:
 ```
 
 # Demo 
+```
+To see a preview of how the mobile app functions [Click Here](https://drive.google.com/file/d/1BIOx3-z_5U-x9JWrz6I_ZbJaF5L4CUPV/view?resourcekey)
 
-[Click Here](https://drive.google.com/file/d/1BIOx3-z_5U-x9JWrz6I_ZbJaF5L4CUPV/view?resourcekey)
-
+```
 
 # Technologies Used
 ```
