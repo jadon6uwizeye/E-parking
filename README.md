@@ -48,7 +48,9 @@ As a user of the application I should be able to:
 
 -Pillow. Installation ($ pip install Pillow).
 
-# Demo [link] (https://drive.google.com/file/d/1BIOx3-z_5U-x9JWrz6I_ZbJaF5L4CUPV/view?resourcekey)
+# Demo 
+
+[Click Here] (https://drive.google.com/file/d/1BIOx3-z_5U-x9JWrz6I_ZbJaF5L4CUPV/view?resourcekey)
 
 
 # Technologies Used
