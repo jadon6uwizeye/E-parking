@@ -6,6 +6,7 @@ The major issue we wanted to tackle is the time spent looking for a nearby parki
 We came up with the Smart-Parking application to enable the users to book parking slots easily to reduce the amount of time spent while looking for the nearest parking.
 
 ## User Stories
+```
 As a user of the application I should be able to:
 
 -Login or Sign up.
@@ -19,6 +20,7 @@ As a user of the application I should be able to:
 -Create Posts that will be visible to everyone in my neighborhood.
 
 -Make payment.
+```
 
 ## Authors
 ```
@@ -35,7 +37,7 @@ As a user of the application I should be able to:
 -Clarisse Uwizeyimana as Android Developer
 ```
 ### Mobile App Preview
-
+```
 -You need to have (python3.6) installed in your machine
 
 -Python3.6. Installation ($ sudo apt-get install python3.6).
@@ -47,10 +49,11 @@ As a user of the application I should be able to:
 -Bootstrap3. Installation ($ pip install django-bootstrap3).
 
 -Pillow. Installation ($ pip install Pillow).
+```
 
 # Demo 
 
-[Click Here] (https://drive.google.com/file/d/1BIOx3-z_5U-x9JWrz6I_ZbJaF5L4CUPV/view?resourcekey)
+[Click Here](https://drive.google.com/file/d/1BIOx3-z_5U-x9JWrz6I_ZbJaF5L4CUPV/view?resourcekey)
 
 
 # Technologies Used
@@ -74,7 +77,9 @@ As a user of the application I should be able to:
 -PostgreSQL
 ```
 # Contact
+```
 -Email Address: ngamissia@gmail.com
+```
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
