@@ -43,9 +43,10 @@ class LocationSerializer(serializers.ModelSerializer):
 
 
 class BlockSerializer(serializers.ModelSerializer):
+    location_name = serializers.CharField(source='location.name', read_only=True)
     class Meta:
         model = Block
-        fields = ('block_code','block_photo','location','is_block_full','is_accessible', 'number_of_slots')
+        fields = ('block_code','block_photo','location','is_block_full','is_accessible', 'number_of_slots', 'location_name')
 
 class SlotSerializer(serializers.ModelSerializer):
     class Meta:

@@ -77,13 +77,13 @@ class Profile(models.Model):
 
 class Reservation(models.Model):
     booking_date = models.DateField()
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_id')
-    plate_No = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_id', null=True, blank=True)
+    plate_No = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)
     Entry_time = models.TimeField(auto_now=False, auto_now_add=False)
     Exit_time = models.TimeField(auto_now=False, auto_now_add=False)
-    duration_in_minutes = models.PositiveIntegerField()
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    parking_slot_id = models.ForeignKey(ParkingSlot, on_delete=models.CASCADE)
+    duration_in_minutes = models.PositiveIntegerField(null=True, blank=True)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE, null=True, blank=True)
+    parking_slot_id = models.ForeignKey(ParkingSlot, on_delete=models.CASCADE, null=True, blank=True)
 
     
     def save_reservation(self):

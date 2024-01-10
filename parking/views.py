@@ -245,6 +245,7 @@ class ReservationList(APIView):
         if serializers.is_valid():
             serializers.save()
             return Response(serializers.data, status=status.HTTP_201_CREATED)
+        print(serializers.errors)
         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class SlipList(APIView):
